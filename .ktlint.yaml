@@ -1,0 +1,6 @@
+ruleSet: android
+rules:
+  standard:function-naming:
+    active: true
+    ignoreAnnotated:
+      - "Composable"

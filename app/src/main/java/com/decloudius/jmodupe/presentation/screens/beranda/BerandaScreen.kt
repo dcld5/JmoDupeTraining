@@ -50,7 +50,7 @@ fun BerandaScreen(viewModel: BerandaViewModel = koinViewModel()) {
 
 @Preview(showBackground = true)
 @Composable
-fun BerandaScreenPreview() {
+fun berandaScreenPreview() {
     JMODupeTheme {
         BerandaScreenContent(
             user =
