@@ -23,6 +23,7 @@ android {
     signingConfigs {
         create("release") {
             // CI provides these via env vars; locally fall back to the standard debug keystore.
+            // KEYSTORE_FILE is resolved relative to this module's directory (app/).
             storeFile =
                 file(
                     System.getenv("KEYSTORE_FILE")
