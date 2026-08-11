@@ -62,7 +62,7 @@ fun BerandaScreenPreview() {
                 id = 1,
                 email = "test@example.com",
                 password = "1223",
-                name = "Pengguna",
+                name = "Bambang",
                 ktp = "1234567890123456",
                 phone = "081234567890"
             )
@@ -75,7 +75,7 @@ fun BerandaScreenContent(user: User?) {
     val scrollState = rememberScrollState()
 
     val layananList = listOf(
-        "Jaminan hari tua" to Color(0xFFFF5722),
+        "Jaminan hari tua" to Color(0xFFEC3232),
         "Jaminan Kecelakaan Kerja" to Color(0xFF2196F3),
         "Jaminan Kematian" to Color(0xFFE91E63),
         "Jaminan Pensiun" to Color(0xFF4CAF50),
