@@ -52,6 +52,7 @@ fun BerandaScreen(viewModel: BerandaViewModel = koinViewModel()) {
     BerandaScreenContent(user = user)
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun BerandaScreenPreview() {
