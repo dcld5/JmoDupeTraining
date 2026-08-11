@@ -61,7 +61,7 @@ fun BerandaScreenPreview() {
             user = User(
                 id = 1,
                 email = "test@example.com",
-                password = "",
+                password = "1223",
                 name = "Pengguna",
                 ktp = "1234567890123456",
                 phone = "081234567890"
