@@ -7,7 +7,6 @@ import com.decloudius.jmodupe.data.local.entity.UserEntity
 
 @Dao
 interface UserDao {
-
     @Insert
     suspend fun insertUser(user: UserEntity)
 

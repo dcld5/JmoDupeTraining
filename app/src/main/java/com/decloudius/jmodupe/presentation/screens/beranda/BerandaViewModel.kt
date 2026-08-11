@@ -8,8 +8,9 @@ import com.decloudius.jmodupe.domain.model.User
 import com.decloudius.jmodupe.domain.repository.UserRepository
 import kotlinx.coroutines.launch
 
-class BerandaViewModel(private val userRepository: UserRepository) : ViewModel() {
-
+class BerandaViewModel(
+    private val userRepository: UserRepository,
+) : ViewModel() {
     private val _user = mutableStateOf<User?>(null)
     val user: State<User?> = _user
 

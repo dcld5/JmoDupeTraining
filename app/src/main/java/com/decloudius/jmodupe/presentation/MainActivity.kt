@@ -8,7 +8,6 @@ import com.decloudius.jmodupe.presentation.navigation.JMOApp
 import com.decloudius.jmodupe.presentation.theme.JMODupeTheme
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

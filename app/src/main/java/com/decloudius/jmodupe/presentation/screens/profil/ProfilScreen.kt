@@ -36,68 +36,73 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.decloudius.jmodupe.R
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ProfilScreen(
     onLogout: () -> Unit,
-    viewModel: ProfilViewModel = koinViewModel()
+    viewModel: ProfilViewModel = koinViewModel(),
 ) {
     val user = viewModel.user.value
 
-    val menuItems = listOf(
-        "Poin Saya",
-        "Ubah Profil",
-        "Kartu Digital Anda",
-        "Informasi Autodebit",
-        "Syarat & Ketentuan",
-        "Kebijakan & Privasi",
-        "Tentang Aplikasi"
-    )
+    val menuItems =
+        listOf(
+            "Poin Saya",
+            "Ubah Profil",
+            "Kartu Digital Anda",
+            "Informasi Autodebit",
+            "Syarat & Ketentuan",
+            "Kebijakan & Privasi",
+            "Tentang Aplikasi",
+        )
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
-
-        Column(
-            modifier = Modifier
+        modifier =
+            Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .background(Color.White),
+    ) {
+        Column(
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
         ) {
             // Profile card
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 16.dp),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primary
-                )
+                colors =
+                    CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                    ),
             ) {
                 Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(24.dp)
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(24.dp),
                 ) {
                     Column(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Box(
-                            modifier = Modifier
-                                .size(80.dp)
-                                .clip(CircleShape)
-                                .background(Color.White),
-                            contentAlignment = Alignment.Center
+                            modifier =
+                                Modifier
+                                    .size(80.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.White),
+                            contentAlignment = Alignment.Center,
                         ) {
                             Icon(
                                 imageVector = Icons.Filled.Person,
                                 contentDescription = "Profile",
                                 modifier = Modifier.size(40.dp),
-                                tint = MaterialTheme.colorScheme.primary
+                                tint = MaterialTheme.colorScheme.primary,
                             )
                         }
                         Text(
@@ -105,40 +110,41 @@ fun ProfilScreen(
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
-                            modifier = Modifier.padding(top = 12.dp)
+                            modifier = Modifier.padding(top = 12.dp),
                         )
                     }
 
                     Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 120.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(top = 120.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Column {
                             Text(
                                 text = "KTP/Paspor",
                                 fontSize = 12.sp,
-                                color = Color.White.copy(alpha = 0.8f)
+                                color = Color.White.copy(alpha = 0.8f),
                             )
                             Text(
                                 text = user?.ktp ?: "-",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = Color.White
+                                color = Color.White,
                             )
                         }
                         Column(horizontalAlignment = Alignment.End) {
                             Text(
                                 text = "Nomor HP",
                                 fontSize = 12.sp,
-                                color = Color.White.copy(alpha = 0.8f)
+                                color = Color.White.copy(alpha = 0.8f),
                             )
                             Text(
                                 text = user?.phone ?: "-",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = Color.White
+                                color = Color.White,
                             )
                         }
                     }
@@ -149,37 +155,39 @@ fun ProfilScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
+                colors =
+                    CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surface,
+                    ),
             ) {
                 LazyColumn(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
                     items(menuItems) { item ->
                         Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { }
-                                .padding(horizontal = 16.dp, vertical = 16.dp),
+                            modifier =
+                                Modifier
+                                    .fillMaxWidth()
+                                    .clickable { }
+                                    .padding(horizontal = 16.dp, vertical = 16.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(
                                 text = item,
                                 fontSize = 16.sp,
-                                color = MaterialTheme.colorScheme.onSurface
+                                color = MaterialTheme.colorScheme.onSurface,
                             )
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                                 contentDescription = "Next",
-                                tint = Color.Gray
+                                tint = Color.Gray,
                             )
                         }
                         if (item != menuItems.last()) {
                             HorizontalDivider(
                                 modifier = Modifier.padding(horizontal = 16.dp),
-                                color = Color.LightGray
+                                color = Color.LightGray,
                             )
                         }
                     }
@@ -191,28 +199,30 @@ fun ProfilScreen(
             // Logout button on the right side
             Button(
                 onClick = { viewModel.logout(onLogout) },
-                modifier = Modifier
-                    .width(160.dp)
-                    .height(50.dp)
-                    .padding(bottom = 8.dp)
-                    .align(Alignment.End),
+                modifier =
+                    Modifier
+                        .width(160.dp)
+                        .height(50.dp)
+                        .padding(bottom = 8.dp)
+                        .align(Alignment.End),
                 shape = RoundedCornerShape(12.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0x00FFFFFF)
-                )
+                colors =
+                    ButtonDefaults.buttonColors(
+                        containerColor = Color(0x00FFFFFF),
+                    ),
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = "Logout",
                     modifier = Modifier.size(24.dp),
-                    tint = Color(0xFFD32F2F)
+                    tint = Color(0xFFD32F2F),
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = "Keluar",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Color(0xFFD32F2F)
+                    color = Color(0xFFD32F2F),
                 )
             }
         }

@@ -36,7 +36,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun LoginScreen(
     onLoginSuccess: () -> Unit,
-    viewModel: LoginViewModel = koinViewModel()
+    viewModel: LoginViewModel = koinViewModel(),
 ) {
     val email = viewModel.email.value
     val password = viewModel.password.value
@@ -52,7 +52,7 @@ fun LoginScreen(
     if (isLoading) {
         Box(
             modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             CircularProgressIndicator()
         }
@@ -60,23 +60,25 @@ fun LoginScreen(
     }
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(Color.White),
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 24.dp)
-                .padding(top = 64.dp),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 24.dp)
+                    .padding(top = 64.dp),
             verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_logo_icon),
                 contentDescription = "JMO Logo",
                 modifier = Modifier.size(120.dp),
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Fit,
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -86,15 +88,16 @@ fun LoginScreen(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
-                modifier = Modifier.align(Alignment.Start)
+                modifier = Modifier.align(Alignment.Start),
             )
             Text(
                 text = "Silahkan login untuk masuk aplikasi",
                 fontSize = 14.sp,
                 color = Color.Gray,
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(top = 4.dp)
+                modifier =
+                    Modifier
+                        .align(Alignment.Start)
+                        .padding(top = 4.dp),
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -104,7 +107,7 @@ fun LoginScreen(
                 onValueChange = viewModel::onEmailChange,
                 label = { Text("Email") },
                 modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                singleLine = true,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -115,26 +118,26 @@ fun LoginScreen(
                 label = { Text("Password") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation()
+                visualTransformation = PasswordVisualTransformation(),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
                     text = "Lupa Akun ?",
                     fontSize = 12.sp,
                     color = Color.Red,
-                    modifier = Modifier.clickable { }
+                    modifier = Modifier.clickable { },
                 )
                 Text(
                     text = "Lupa Kata Sandi ?",
                     fontSize = 12.sp,
                     color = Color.Red,
-                    modifier = Modifier.clickable { }
+                    modifier = Modifier.clickable { },
                 )
             }
 
@@ -145,13 +148,15 @@ fun LoginScreen(
 
             Button(
                 onClick = { viewModel.login() },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .height(50.dp),
                 shape = RoundedCornerShape(12.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = buttonColor
-                )
+                colors =
+                    ButtonDefaults.buttonColors(
+                        containerColor = buttonColor,
+                    ),
             ) {
                 Text("Login", fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
@@ -162,7 +167,7 @@ fun LoginScreen(
                 text = "Buat Akun",
                 fontSize = 14.sp,
                 color = Color.Red,
-                modifier = Modifier.clickable { }
+                modifier = Modifier.clickable { },
             )
         }
     }

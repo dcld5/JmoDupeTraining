@@ -8,8 +8,9 @@ import com.decloudius.jmodupe.domain.model.User
 import com.decloudius.jmodupe.domain.repository.UserRepository
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
-
+class LoginViewModel(
+    private val userRepository: UserRepository,
+) : ViewModel() {
     private val _email = mutableStateOf("")
     val email: State<String> = _email
 
@@ -44,13 +45,18 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     fun login() {
         viewModelScope.launch {
-            val user = User(
-                email = _email.value,
-                password = _password.value,
-                name = _email.value.substringBefore("@").replace(".", " ").replaceFirstChar { it.uppercase() },
-                ktp = "1234567890123456",
-                phone = "081234567890"
-            )
+            val user =
+                User(
+                    email = _email.value,
+                    password = _password.value,
+                    name =
+                        _email.value
+                            .substringBefore("@")
+                            .replace(".", " ")
+                            .replaceFirstChar { it.uppercase() },
+                    ktp = "1234567890123456",
+                    phone = "081234567890",
+                )
             userRepository.insertUser(user)
             _isLoggedIn.value = true
         }

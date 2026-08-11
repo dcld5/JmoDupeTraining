@@ -11,21 +11,23 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
+val appModule =
+    module {
 
-    single {
-        Room.databaseBuilder(
-            androidContext(),
-            AppDatabase::class.java,
-            "jmo_database"
-        ).build()
+        single {
+            Room
+                .databaseBuilder(
+                    androidContext(),
+                    AppDatabase::class.java,
+                    "jmo_database",
+                ).build()
+        }
+
+        single { get<AppDatabase>().userDao() }
+
+        single<UserRepository> { UserRepositoryImpl(get()) }
+
+        viewModel { LoginViewModel(get()) }
+        viewModel { BerandaViewModel(get()) }
+        viewModel { ProfilViewModel(get()) }
     }
-
-    single { get<AppDatabase>().userDao() }
-
-    single<UserRepository> { UserRepositoryImpl(get()) }
-
-    viewModel { LoginViewModel(get()) }
-    viewModel { BerandaViewModel(get()) }
-    viewModel { ProfilViewModel(get()) }
-}

@@ -22,7 +22,7 @@ import kotlinx.coroutines.delay
 fun AutoScrollCarousel(
     imageUrls: List<String>,
     modifier: Modifier = Modifier,
-    autoScrollIntervalMs: Long = 3000L
+    autoScrollIntervalMs: Long = 3000L,
 ) {
     val pagerState = rememberPagerState(pageCount = { imageUrls.size })
 
@@ -36,18 +36,19 @@ fun AutoScrollCarousel(
 
     HorizontalPager(
         state = pagerState,
-        modifier = modifier
-            .fillMaxWidth()
-            .height(180.dp)
-            .padding(horizontal = 16.dp)
-            .clip(RoundedCornerShape(16.dp))
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .height(180.dp)
+                .padding(horizontal = 16.dp)
+                .clip(RoundedCornerShape(16.dp)),
     ) { page ->
         Box(modifier = Modifier.fillMaxWidth()) {
             GlideImage(
                 model = imageUrls[page],
                 contentDescription = "Carousel image ${page + 1}",
                 modifier = Modifier.fillMaxWidth(),
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop,
             )
         }
     }

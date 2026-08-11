@@ -15,16 +15,17 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun KartuDigitalScreen() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(Color.White),
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = "Kartu Digital",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onSurface,
         )
     }
 }

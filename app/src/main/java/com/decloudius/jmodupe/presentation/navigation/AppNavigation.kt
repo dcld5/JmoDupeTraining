@@ -33,7 +33,7 @@ fun JMOApp() {
                     rootNavController.navigate("main") {
                         popUpTo("login") { inclusive = true }
                     }
-                }
+                },
             )
         }
         composable("main") {
@@ -42,7 +42,7 @@ fun JMOApp() {
                     rootNavController.navigate("login") {
                         popUpTo(0) { inclusive = true }
                     }
-                }
+                },
             )
         }
     }
@@ -51,12 +51,13 @@ fun JMOApp() {
 @Composable
 fun MainScreen(onLogout: () -> Unit) {
     val navController = rememberNavController()
-    val bottomNavItems = listOf(
-        BottomNavItem.Beranda,
-        BottomNavItem.Berita,
-        BottomNavItem.KartuDigital,
-        BottomNavItem.ProfilSaya
-    )
+    val bottomNavItems =
+        listOf(
+            BottomNavItem.Beranda,
+            BottomNavItem.Berita,
+            BottomNavItem.KartuDigital,
+            BottomNavItem.ProfilSaya,
+        )
 
     Scaffold(
         bottomBar = {
@@ -77,16 +78,16 @@ fun MainScreen(onLogout: () -> Unit) {
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        }
+                        },
                     )
                 }
             }
-        }
+        },
     ) { innerPadding ->
         NavHost(
             navController = navController,
             startDestination = BottomNavItem.Beranda.route,
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding),
         ) {
             composable(BottomNavItem.Beranda.route) { BerandaScreen() }
             composable(BottomNavItem.Berita.route) { BeritaScreen() }
